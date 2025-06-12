@@ -19,4 +19,5 @@ class Solution {
     }
 }
 
-//multiply all numbers together and for each index divide the index value by the big number 
+//multiply all products to the left of the index (1 if nothing to the left) store in answer array
+//iterate backwards and multiply the num to the right with the answer array. update right product
