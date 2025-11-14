@@ -1,0 +1,23 @@
+class RecentCounter:
+
+    def __init__(self):
+        self.requests = []
+        
+
+    def ping(self, t: int) -> int:
+
+        self.requests.append(t)
+
+        while self.requests[0] < t-3000:
+            self.requests.pop(0)
+
+        return len(self.requests)
+
+
+
+        
+#ping(1) = t=1 every time we call the ping function, we 
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
