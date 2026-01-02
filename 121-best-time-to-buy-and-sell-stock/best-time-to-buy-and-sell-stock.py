@@ -3,8 +3,8 @@ class Solution:
         curr_min = float(inf)
         max_profit = 0
 
-        for price in prices:
-            curr_min = min(price, curr_min)
-            max_profit = max(max_profit, price - curr_min)
+        for i in range(len(prices)):
+            curr_min = min(prices[i], curr_min)
+            max_profit = max(max_profit, prices[i] - curr_min)
         return max_profit
 
