@@ -1,19 +1,24 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
+        '''
+        height = height[i]
+        width = height (index)
+
+        '''
         left = 0
         right = len(height) - 1
         max_area = 0
 
-        while right > left: 
-            length = right - left
-            curr_height = min(height[right], height[left])
-            new_area = length * curr_height
-
-            if new_area > max_area:
-                max_area = new_area
-                
-            if height[right] > height[left]:
-                left += 1
-            else:
+        while left < right:
+            min_height = min(height[left], height[right])
+            width = right - left 
+            area = min_height * width
+            max_area = max(max_area, area)
+            if height[left] >= height[right]:
                 right -= 1
+            else:
+                left += 1
+
         return max_area
+
+        
