@@ -11,16 +11,12 @@ class Solution:
      
         for i in range(len(prices)):
             profit = prices[i] - curr_min
-            
-            if profit > max_profit:
-                max_profit = profit
-
-            if prices[i] < curr_min:
-                curr_min = prices[i]
+            max_profit = max(max_profit, profit)
+            curr_min = min(prices[i], curr_min)
         return max_profit
 
-        if max_profit <= 0:
-            return 0
+        #if max_profit <= 0:
+            #return 0
             
 
 
