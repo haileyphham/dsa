@@ -9,17 +9,17 @@ class Node:
 from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        #so basically we want to traverse the graph and create a clone of the graph
         if not node:
-            return None 
+            return None
 
-        old_to_new = {} #creating a dictionary to store the copies
-        
-        def dfs(curr): #here, we input our current node, output its copy.
-            if curr in old_to_new: # if we saw this node already,
-                return old_to_new[curr] #we 
-            copy = Node(curr.val) #copying the node if we havent seen it alr
-            old_to_new[curr] = copy #map the cloned value in the dictionary
+        clone_map = {}
+        def dfs(curr):
+            
+            if curr in clone_map:
+                return clone_map[curr]
+            #create copy
+            copy = Node(curr.val)
+            clone_map[curr] = copy
 
             for neighbor in curr.neighbors:
                 copy.neighbors.append(dfs(neighbor))
@@ -28,9 +28,3 @@ class Solution:
 
         return dfs(node)
 
-
-
-        
-
-
-        
