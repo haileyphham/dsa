@@ -1,20 +1,15 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+
         output = []
         path = []
 
         def backtrack(i):
-            if i == len(nums):
-                output.append(path.copy())
-                return
-            
-            path.append(nums[i]) #include
-            backtrack(i+1)
-            path.pop()
+            output.append(path.copy())
 
-            backtrack(i+1)
-
-
+            for j in range(i, len(nums)):
+                path.append(nums[j])
+                backtrack(j+1)
+                path.pop()
         backtrack(0)
         return output
-
